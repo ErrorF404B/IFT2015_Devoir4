@@ -56,11 +56,17 @@ void countGroups()
 	
 	int existing_groups = 0, new_groups = 1;
 
+	boolean visited[] = new boolean[V];
 	
-	// WRITE YOUR CODE HERE (~7 Lines)
-			
-	// END OF YOUR CODE HERE
-
+	for (int i = 0; i < V; i++) {
+		if(!visited[i]) {
+			int count = countUtil(i, visited);
+			if (count > 1) {
+				existing_groups ++;
+			new_groups *= count;	
+			}
+		}
+	}
 		
 	System.out.println("No. of existing groups are " +
 					existing_groups);
